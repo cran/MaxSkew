@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("graphics", "pairs", "plot")
+importFrom("stats", "cov", "var")
+importFrom("grDevices", "dev.new")

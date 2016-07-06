@@ -1,0 +1,10 @@
+5a44bc549408687e8c57efc69bc4874d *DESCRIPTION
+62c8500d15a181fb350b8189edf9560a *NAMESPACE
+271c26d45f6a8b4f2805f4288122aa47 *R/MaxSkew-internal.R
+c16ccd790b4c97b6753b851132126871 *R/MaxSkew.R
+d9eda3d57e2e026eb3fb683f6028d2c3 *R/MaxSkewBiv.R
+591a774c0a55bf9ed0d10bf411286eee *R/MaxSkewThree.R
+d447bf395491e0af94846cb5acc8b232 *man/MaxSkew-package.Rd
+bd1bb6cb31b67a2245098658d4cde526 *man/MaxSkew.Rd
+80845ebdbfe4332b25de4da4baf9898c *man/MaxSkewBiv.Rd
+ffeef63bac165a1e404bfe7611f26e51 *man/MaxSkewThree.Rd
