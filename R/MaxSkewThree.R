@@ -1,4 +1,5 @@
-MaxSkewThree <-function(data,iterations){
+.MaxSkewThree <-
+function(data,iterations){
     #Data projection with maximal skewness. The skewness of a distribution is 
     #the third standardized moment of the distribution itself.
     #MaxSkewThree calls the function "MaxSkewBiv".
@@ -13,6 +14,7 @@ MaxSkewThree <-function(data,iterations){
     n<-nrow(data)#number of rows of the data matrix
     d<-ncol(data)#number of columns of the data matrix
     .Skew<-c()
+
     .skewdesideredBIV<-c(0)
     
   .projection=NULL
@@ -74,18 +76,22 @@ MaxSkewThree <-function(data,iterations){
             y<-data[,j]#j-th column of the data matrix
             v[j]<-c(0) #removes the j-th variable from the linear combination
             
-           MaxSkewBiv(data%*%v,y)
+           .MaxSkewBiv(data%*%v,y)
             s<-.skewdesideredBIV #skewness of the new linear combination
             v[j]<-.linearBIV[2]/.linearBIV[1]#updated vector of coefficients
+
             if (s>M) {#if the new skewness is greater than the current maximum...
                 M<-s #...make the new skewness the current maximum
+
                 .Skew<<-s #set the new skewness equal to Skew...
                 .linear<<-v#...set the vector of the coefficients equal to linear...
                 .projection<<-data%*%v #project the data onto the direction of v
                 
             }
-            
+          
         }
+
+
     }
     .linearBIV<-.linearBIV
   

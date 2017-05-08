@@ -1,5 +1,5 @@
 MaxSkew <-
-function(data,iterations,components){
+function(data,iterations,components,plot){
   
     #Data projection with maximal skewness. The skewness of a distribution is 
     #the third standardized moment of the distribution itself.
@@ -11,6 +11,8 @@ function(data,iterations,components){
     #data= data matrix where rows and columns represent units and variables
     #iterations= number of required iterations
     #components= number of orthogonal projections maximizing skewness
+    #plot= dichotomous variable: TRUE/FALSE. If plot is set equal to TRUE, a scatterplot of the projections is shown in the output
+    
     
     #PRELIMINARIES
     
@@ -20,7 +22,7 @@ function(data,iterations,components){
     rm(.projectionBIV)
     
   if(d==2){
-           MaxSkewBiv(data[,1],data[,2])
+           .MaxSkewBiv(data[,1],data[,2])
            return(.projectionBIV)
            plot(.projectionBIV)
   } 
@@ -38,7 +40,7 @@ function(data,iterations,components){
     for (i in 1:(d-1)){
         h<-d-i+1
         mx<-colMeans(data) # vector mean
-        MaxSkewThree(data,iterations)
+        .MaxSkewThree(data,iterations)
         projectionmatrix<-cbind(projectionmatrix,.projection)#where projection is taken from MaxSkewThree
         linearmatrix<-rbind(linearmatrix,.linear)
         
@@ -59,20 +61,21 @@ function(data,iterations,components){
         proiezione<-res%*%V[,2:h]#data projection orthogonal to skewed components
         data<-proiezione
     }
+  if(plot==TRUE){
   if(d>2){
           
             for (i in 3:(components+1)){
               dev.new()
         pairs(projectionmatrix[,2:i],labels=values,main="Projections")#scatterplot of the projectionmatrix
     }
-    
+  }
+ }   
     projectionmatrix<-projectionmatrix[,2:(components+1)]
     linearmatrix<-as.matrix(linearmatrix[2:sum(seq((components+1):1)),])
     Skewmatrix<-as.matrix(Skewmatrix[2:(components+1)])
     return(projectionmatrix)
     .projection<-.projection
     .linear<-.linear
-  }
+  #}
     
 }
-

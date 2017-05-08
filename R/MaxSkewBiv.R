@@ -1,4 +1,5 @@
-MaxSkewBiv <-function(x,y){
+.MaxSkewBiv <-
+function(x,y){
     #Skewness-based projection pursuit for bivariate random vectors.
     #linear=coefficients of the linear projection.
     #projection=vector of projected data.
@@ -85,4 +86,3 @@ MaxSkewBiv <-function(x,y){
     
 
 }
-
